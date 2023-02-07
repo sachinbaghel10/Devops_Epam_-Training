@@ -1,0 +1,92 @@
+         NAME - SACHIN BAGHEL REG. 11913578
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. write a shell script function that take name of a file or directory as unlimited argument and reports if it is a regular file, a directory, or another type of file. 
+Also perform an ls command against the file or directory with the long listing option. Write for all the mention details . 
+also create function function “file_count” and call it in your script. If you use variable in your function, remember to make it a local variable. [5]
+
+#!/bin/bash
+
+func(){
+if [ -d $1 ]
+then
+echo "The given argument is the directory."
+file_count `ls $1`
+ls -l $1
+elif [ -f $1 ]
+then
+echo "The given argument is the file."
+else
+echo "The given argument is some another type of file"
+fi
+}
+
+file_count(){
+files=$#
+echo "The number of files in the directory is $files"
+}
+
+func test_dir
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. You need to find a file named myfile.txt somewhere in your Linux file system. Which is thecorrect command to do this? [2]
+
+ ans : comamnd  is :             find / -name "myfile.txt
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Write a scipt to Lock down the file or directory permission for folder1 files as per following requirement  [8]
+mkdir folder1
+touch f_{1..3}
+
+.file.sh folder1/
+
+Remove all permissions for groups and others.
+Provide directory name through command-line.
+After running script all files in the given directory, Only should have all the permissions.
+But remember dont add any permission to user only change to others and groups.
+
+
+
+
+ans--  file name  "file.sh" 
+
+# Shell script to display list of file names
+# having read, Write and Execute permission
+
+echo "The name of all files having all permissions :"
+
+# loop through all files in current directory
+for file in *
+do
+# check if it is a file
+if [ -f $file ]
+then
+
+# check if it has all permissions
+if [ -r $file -a -w $file -a -x $file ]
+then
+
+# print the complete file name with -l option
+ls -l $file
+
+# closing second if statement
+fi
+# closing first if statement
+fi
+
+done
+
+
+$ chmod 777 main.sh
+
+$ bash main.sh
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
