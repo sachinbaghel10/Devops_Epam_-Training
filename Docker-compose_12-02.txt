@@ -1,0 +1,21 @@
+Q.Create a docker -compose yml file with two container data as mongDB  frontant as php.
+
+
+version: '4'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+  php:
+    image: php:apache
+    container_name: php
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - mongodb
