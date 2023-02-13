@@ -1,0 +1,50 @@
+
+---------------Dockerfiel---------------------
+ARG CODE_VERSION=22.04
+
+FROM Ubuntu:${CODE_VERSION}
+
+RUN apt-get update -y
+
+CMD ["bash"]
+-----------------------------Command---------------
+pwd
+  770  tree -L l
+  771  tree -L 1
+  772  sudo snap install tree
+  773  tree -L 1
+  774  tree -l -d
+  775  makdir CC_Docker
+  776  mkdir CC_Docker
+  777  ls
+  778  cd CC_Docker
+  779  ped
+  780  mkdir D-1
+  781  cd D-1
+  782  pwd
+  783  touch 
+  784  touch Dockerfile
+  785  ls
+  786  nano Dockerfile
+  787  docker build -t img_from .
+  788  nano Dockerfile
+  789  docker build -t img_from .
+  790  docker images
+  791  history
+-----------------------------------------------------------------------------------------------
+RUN ubuntu:22.04
+
+Run apt-get update && apt-get install -y curl \
+    && apt-get clear \
+    && rm -rf /var/lib/apt/list/*
+
+RUN mkdir /home/Codes
+
+ENV USER Cerulean-Canvas
+ENV SHELL /bin/bash
+ENV LOGNAME Cerulean-Canv
+
+CMD ["bash"]
+
+
+
