@@ -1,0 +1,12 @@
+
+---------------Dockerfiel---------------------
+ARG CODE_VERSION=22.04
+
+FROM Ubuntu:${CODE_VERSION}
+
+RUN apt-get update -y
+
+CMD ["bash"]
+-----------------------------Command
+
+

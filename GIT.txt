@@ -1,0 +1,137 @@
+version 1
+
+v2
+v3
+to open editor and ediit content
+	- vi file_name
+	- then click i to insert any text
+	- to quit press esc then :wq
+ push-
+	git remote add origin link
+	git push -u origin master
+****************************************
+FORMATING COMMANDS (log commands)
+///// git log --pretty=format:"%h---%an---%ae"  ae author email
+///// git log --pretty=oneline
+///// git log --pretty=short
+///// git log --pretty=full
+///// git log --since=2.days/weeks/month/year
+///// touch .gitignore
+///// git log --stat
+
+to remove from git repo
+	- rm -rf .git
+ pull-
+	clone
+	cd
+	git pull
+	git status
+ moving and renaming file in git
+	command to remove any file using git
+	git rm file_name
+
+renaming of one flie name to another file name-
+	-git mv old_file to new_file
+
+to put files into untracked mode-
+	- git rm --cached file_name
+to delete untracked file
+	- git clean -n
+	- git clean -i -d
+	- then options will be shown, which file we want to 		  remove
+
+
+
+how to ammend or change the commit of
+
+unstaging file in git-
+	- git restore --staged file_name
+
+un modifying files in git
+	- git checkout -- file_name
+//////////////////////////////////////////////////////////////////////////// BRANCHING //////////////////////////////////
+creating branches in git
+	-to create the branch
+	     - git checkout -b branch_name
+	-to switch to master
+	     - git checkout master
+	- to check current branch
+	     - git branch
+branch merging and resolving conflicts
+	- to merge
+	   - git merge branch_name
+remove manually if conflict occur while merging
+to checl which branch are merged
+	- git branch --meraged
+	- git branch --no-merged
+how to delete a branch
+	- git branch -d branch_name (error if the merge is not merge yet)
+	- git branch -D branch_name
+pushing git branches to remote repo
+	- 1st checkout to the branch
+	- git push -u origin new_branch_name
+to delete in remote repo
+	- git push -d origin branch_name
+
+/////////////////////////////////////////////////////////////////////////RESET REVERT HARD SOFT MIXED//////////////////////////
+git reset and revert commands
+	- git reset --hard head~1 // to delete commit
+	- git reset --hard hash  // to reset deleted commit
+  revert
+	- git revert hash_value 
+	- then vim editor will be opened with a commit message
+	- click esc then :wq
+to stage and commit at same time
+	- git commit -a -m "message"
+
+git reset - it shifts pointer it removes the commit
+
+git revert - it adds additional comit i.e opposite to the commit
+
+git reset --soft
+	- it dosent touch index file or the working tree at all 	  this leaves 
+all our changed files "changes to  be 	commited in status"
+	- changes will not be removed from working directory, 	but removed from commit area, but added in to staging 	area.
+
+git reset --mixed
+	- it resets the index not the working tree i.e the 	changed files are preserved but not marked for commit
+	- it will send the changes to untracked mode, but changes will remains same
+
+git reset --hard
+	- it reset the index and working tree. any change sto 	the tracked files in the working tree since commit are 	discarded.
+	- changes will be removed from working area, staging 		area, commit area and local repo
+
+git stash-
+	- if we do some change and we dont want to make a commit 	   	 of half done work but gi stash allows you to do so
+	- generally this stash means to store something safely in a 	 hidden place. git temporarily saves your data safely without 	 commiting.
+git stash list-
+	 -to get the list of stash we made. index starts with 0.
+to see difference between after stashing after stashing
+	- git stash show
+to apply the change back from the stash
+	- git stash apply stash@{idorii}
+to delete/ 
+	- git stash drop stash{0}
+git stash apply
+	- git stash apply stash@{id}
+git stash pop
+	- git stash pop allows the user to remove the changes from the 	  stash applies them to your working file.
+git stash clear
+	- this command allow this command allow deleting all the 		  availabe stash at once. 
+git stash -m"message"
+	- to get a customized git id or message.
+
+ *******************GIT TAGS***************************
+
+- It ia a highlighter which high lights some commits.
+- It dosen't create another commit.
+- git tag version(any version)
+- git tag --list (it will show list of tags)
+
+ git checkout version1
+	- to keep the verion separate like branch.
+
+ *******************GIT REBASE********************************
+it rewrite commits from one branch into another branch into another branch and its a useful alternative to merging becoz it gives us a cleaner repository and cleaner repo can help us troubleshoot bug faster
+	git rebase branch_name
+	git log --oneline
