@@ -1,0 +1,21 @@
+
+---------------Expose Instruction-----------------
+ROM ubuntu:22.04
+RUN apt-get update && apt-get install nginx -y \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/list/*
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+--------------------------------------------------------------
+ls
+  816  mkdir D-6
+  817  ls
+  818  cd D-6
+  819  ls
+  820  nano Dockerfile
+  821  docker build -t img_expose .
+  822  docker images
+  823  docker run -itd --name cont_expose -p  8080:80 img_expose
+  824  docker ps -a
+  825  docker container stop cont_expose
